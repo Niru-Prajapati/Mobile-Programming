@@ -12,34 +12,59 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        TextView welcomeMessage=findViewById(R.id.welcome);
-        Intent intent=getIntent();
-        String message=intent.getStringExtra("message");
-        welcomeMessage.setText(message);
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
+//        TextView welcomeMessage=findViewById(R.id.welcome);
+//        Intent intent=getIntent();
+//        String message=intent.getStringExtra("message");
+//        welcomeMessage.setText(message);
+//
+//        Button sendReplyButton=findViewById(R.id.ReplyButton);
+//        sendReplyButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String reply = "Reply Here...";
+//                Intent resultIntent = new Intent();
+//                resultIntent.putExtra("reply", reply);
+//                setResult(MainActivity.RESULT_OK,resultIntent);
+//                finish();
+//            }
+//        });
+        Button showFragment1Button = findViewById(R.id.showFragment1Button);
+        Button showFragment2Button = findViewById(R.id.showFragment2Button);
 
-        Button sendReplyButton=findViewById(R.id.ReplyButton);
-        sendReplyButton.setOnClickListener(new View.OnClickListener() {
+        showFragment1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String reply = "Reply Here...";
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("reply", reply);
-                setResult(MainActivity.RESULT_OK,resultIntent);
-                finish();
+                replaceFragment(new FirstFragment());
             }
         });
+
+        showFragment2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new SecondFragment());
+            }
+        });
+    }
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 }
