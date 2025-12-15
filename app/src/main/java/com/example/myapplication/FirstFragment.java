@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstFragment extends Fragment {
@@ -44,6 +45,8 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "FirstFragment: onViewCreated() called");
         Toast.makeText(getActivity(), "FirstFragment: onViewCreated", Toast.LENGTH_SHORT).show();
+        TextView LongPressTextView=view.findViewById(R.id.longpresstextSize);
+        registerForContextMenu(LongPressTextView);
     }
 
     @Override

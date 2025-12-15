@@ -13,5 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_first_fragment" />
+    <TextView
+        android:id="@+id/longpresstextSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click me for long press"
+        tools:ignore="InvalidId" />
+
 
 </LinearLayout>
