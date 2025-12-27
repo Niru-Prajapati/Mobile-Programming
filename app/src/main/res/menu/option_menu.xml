@@ -18,6 +18,15 @@
         android:title="Help"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_exit"
+        android:title="Exit"
+        app:showAsAction="never"/>
+
+
+
+
+
 
 
 </menu>

@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Log.d(TAG, "MainActivity: onCreate called");
+//        Toast.makeText(this, "MainActivity: onCreate called", Toast.LENGTH_SHORT).show();
+//        EdgeToEdge.enable(this);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -51,28 +56,28 @@ public class MainActivity extends AppCompatActivity {
 //                finish();
 //            }
 //        });
-//        Button showFragment1Button = findViewById(R.id.showFragment1Button);
-//        Button showFragment2Button = findViewById(R.id.showFragment2Button);
-//
-//        showFragment1Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                replaceFragment(new FirstFragment());
-//            }
-//        });
-//
-//        showFragment2Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                replaceFragment(new SecondFragment());
-//            }
-//        });
-//    }
-//    private void replaceFragment(Fragment fragment) {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        transaction.replace(R.id.fragment_container, fragment);
-//        transaction.commit();
+        Button showFragment1Button = findViewById(R.id.showFragment1Button);
+        Button showFragment2Button = findViewById(R.id.showFragment2Button);
+
+        showFragment1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new FirstFragment());
+            }
+        });
+
+        showFragment2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new SecondFragment());
+            }
+        });
+   }
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 
     @Override
@@ -96,5 +101,19 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showSimpleDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle("Exit Option Selected")
+                .setMessage("You selected Exit. Continue?")
+                .setPositiveButton("Yes",(DialogInterface dialog,int which)-> {
+                    finishAffinity();
+                })
+                .setPositiveButton("Yes",(DialogInterface dialog,int which)->
+                        Toast.makeText(this, "Confirmed", Toast.LENGTH_SHORT).show())
+                .setNegativeButton("No",(DialogInterface dialog,int which)->dialog.dismiss())
+                .create()
+                .show();
     }
 }

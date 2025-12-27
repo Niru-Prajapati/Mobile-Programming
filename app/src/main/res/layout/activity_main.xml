@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:layout_marginTop="40dp"
     tools:ignore="ExtraText">
 
 <!--    <fragment-->
@@ -18,8 +19,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_horizontal"
+        android:orientation="horizontal"
         android:padding="8dp"
         tools:ignore="MissingConstraints">
 
@@ -27,40 +28,37 @@
             android:id="@+id/showFragment1Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show Fragment 1"
-            />
+            android:text="Show Fragment 1" />
+
         <Button
             android:id="@+id/showFragment2Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Show Fragment 2"
-            />
+            android:text="Show Fragment 2" />
 
 
+        <!--    <TextView-->
+        <!--        android:id="@+id/welcome"-->
 
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="Hello World!"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/welcome"-->
-
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hello World!"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/ReplyButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_marginStart="100dp"-->
-<!--        android:text="Button"-->
-<!--        tools:ignore="MissingConstraints" />-->
-<!--        tools:layout_editor_absoluteX="137dp"-->
-<!--        tools:layout_editor_absoluteY="319dp"-->
+        <!--    <Button-->
+        <!--        android:id="@+id/ReplyButton"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="50dp"-->
+        <!--        android:layout_marginStart="100dp"-->
+        <!--        android:text="Button"-->
+        <!--        tools:ignore="MissingConstraints" />-->
+        <!--        tools:layout_editor_absoluteX="137dp"-->
+        <!--        tools:layout_editor_absoluteY="319dp"-->
     </LinearLayout>
 
     <FrameLayout
@@ -69,6 +67,7 @@
         android:layout_height="0dp"
         android:background="#E0E0E0"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
